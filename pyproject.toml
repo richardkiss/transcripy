@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "transcripy"
+version = "0.1.0"
+description = "Multi-speaker audio transcription using OpenAI Whisper, Pyannote-Audio and Spleeter"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Richard Kiss", email = "him@richardkiss.com"}
+]
+keywords = ["transcription", "audio", "whisper", "speech-to-text", "diarization"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "tqdm",
+    "setuptools-rust",
+    "pycaption",
+    "simpleaudio",
+    "simple-term-menu",
+    "colour",
+    "plotly",
+    "mutagen",
+    "pydub",
+    "spleeter",
+    "pyannote.audio",
+    "openai-whisper",
+    "ffmpeg-binaries>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+]
+
+[project.scripts]
+transcripy = "transcripy.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/richardkiss/transcripy"
+Repository = "https://github.com/richardkiss/transcripy"
+
+[tool.setuptools]
+packages = ["transcripy"]
