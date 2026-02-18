@@ -33,13 +33,15 @@ dependencies = [
     "plotly",
     "mutagen",
     "pydub",
-    "spleeter",
     "pyannote.audio",
     "openai-whisper",
     "ffmpeg-binaries>=1.0.0",
 ]
 
 [project.optional-dependencies]
+spleeter = [
+    "spleeter",
+]
 dev = [
     "pytest",
     "pytest-cov",

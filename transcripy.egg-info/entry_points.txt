@@ -1,0 +1,2 @@
+[console_scripts]
+transcripy = transcripy.cli:main
