@@ -2,3 +2,9 @@ data/
 .mypy_cache/
 __pycache__
 pretrained_models/
+build/
+*.egg-info/
+dist/
+*.pyc
+.venv/
+venv/
