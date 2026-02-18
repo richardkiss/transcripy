@@ -52,7 +52,7 @@ source .venv/bin/activate
 uv pip install "transcripy[spleeter]"
 ```
 
-**Note**: `ffmpeg` is included automatically via `ffmpeg-binaries` package - no need to install it separately!
+**Note**: `ffmpeg` is included automatically via the `ffmpeg-binaries` package - no need to install it separately!
 
 ### Quick start
 
