@@ -5,16 +5,82 @@ This project is a CLI for multi-speaker audio transcription using [OpenAI Whispe
 It's compatible with Windows, Linux and Mac.
 ___
 
-## Setup
+## Installation with uv (Recommended)
 
-Install system dependencies
+[uv](https://github.com/astral-sh/uv) is a fast Python package installer and resolver. It can install Python for you and manage dependencies efficiently.
+
+### Install uv
+
+```shell
+# on macOS and Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# on Windows
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# or with pip
+pip install uv
+```
+
+### Install transcripy
+
+**Note**: On Linux, you may need to install ALSA development headers first:
+```shell
+# on Ubuntu or Debian
+sudo apt update && sudo apt install libasound2-dev
+
+# on Arch Linux  
+sudo pacman -S alsa-lib
+```
+
+**Basic installation** (without Spleeter voice extraction):
+```shell
+# Let uv install Python 3.11 (recommended)
+uv python install 3.11
+
+# Create a virtual environment and install transcripy
+uv venv --python 3.11
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+uv pip install transcripy
+```
+
+**With Spleeter** (for voice extraction feature, requires Python 3.11):
+```shell
+uv python install 3.11
+uv venv --python 3.11
+source .venv/bin/activate
+uv pip install "transcripy[spleeter]"
+```
+
+**Note**: `ffmpeg` is included automatically via `ffmpeg-binaries` package - no need to install it separately!
+
+### Quick start
+
+```shell
+# Create a simple transcription
+transcripy --audio-to-text --model tiny
+
+# See all options
+transcripy --help
+```
+
+___
+
+## Traditional Installation (Alternative)
+
+<details>
+<summary>Click to expand traditional pip-based installation instructions</summary>
+
+### Install system dependencies
+
+**Note**: With the uv installation method above, ffmpeg is included automatically. Only use these instructions if you're not using uv.
 
 ```shell
 # on Ubuntu or Debian
-sudo apt update && sudo apt install ffmpeg
+sudo apt update && sudo apt install ffmpeg libasound2-dev
 
 # on Arch Linux
-sudo pacman -S ffmpeg
+sudo pacman -S ffmpeg alsa-lib
 
 # on MacOS using Homebrew (https://brew.sh/)
 brew install ffmpeg
@@ -26,11 +92,16 @@ choco install ffmpeg
 scoop install ffmpeg
 ```
 
-Install python dependencies
+### Install python dependencies
 
 ```shell
-pip3 install tqdm setuptools-rust pycaption simpleaudio simple-term-menu colour plotly mutagen pydub spleeter pyannotate.audio git+https://github.com/openai/whisper.git 
+pip3 install transcripy
+
+# Or with Spleeter (voice extraction):
+pip3 install "transcripy[spleeter]"
 ```
+
+</details>
 
 ___
 
